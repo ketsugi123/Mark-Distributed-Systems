@@ -1,0 +1,19 @@
+syntax = "proto3";
+import "shared/general.proto";
+
+option java_multiple_files = true;
+option java_package = "registryWithClient";
+
+package registryWithClient;
+
+service RegistryWithClient {
+  rpc getSvc(GetSvcRequest) returns (stream GetSvcResponse);
+}
+
+message GetSvcRequest {
+
+}
+
+message GetSvcResponse {
+  shared.ServerInfo svc = 1;
+}

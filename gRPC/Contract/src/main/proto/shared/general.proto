@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package shared;
+
+message ServerInfo {
+  string ip = 1;
+  uint32 port = 2;
+}
+
+message ImageBlock {
+  ImageBlockMetadata metadata = 5;
+  bytes pixel_data = 6;
+}
+
+message ImageBlockMetadata {
+  uint32 sequence_number = 1;
+  uint32 total_blocks = 2;
+}
+
+
+
+message SimpleResponse {
+  bool success = 1;
+  string message = 2;
+}

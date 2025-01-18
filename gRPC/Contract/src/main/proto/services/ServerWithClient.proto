@@ -1,0 +1,28 @@
+syntax = "proto3";
+import "shared/general.proto";
+
+option java_multiple_files = true;
+option java_package = "serverWithClient";
+package serverWithClient;
+
+service ServerWithClient {
+  rpc upload(stream UploadRequest) returns (stream UploadResponse);
+  rpc download(stream DownloadRequest) returns (stream DownloadResponse);
+}
+
+
+message UploadRequest{
+  shared.ImageBlock block = 1;
+}
+
+message DownloadRequest{
+  string id = 1;
+}
+
+message UploadResponse{
+  string id = 1;
+}
+
+message DownloadResponse{
+  shared.ImageBlock blocks = 2;
+}
